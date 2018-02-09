@@ -1,0 +1,29 @@
+{
+  "name": "gulp-assemble",
+  "version": "1.0.0",
+  "description": "Development in a gulp-based environment",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "keywords": [
+    "gulp/development/node"
+  ],
+  "author": "Marcos Vinicius Dreher Oliveira",
+  "license": "ISC",
+  "devDependencies": {
+    "assemble": "^0.24.3",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-extname": "^0.2.2",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-inject": "^4.3.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^3.1.0",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "gulp-watch": "^5.0.0"
+  }
+}

@@ -1,0 +1,5 @@
+@import 'data.scss';
+
+@each $size in map-keys($sizes) {
+    .text-#{$size} { font-size: map-get($sizes, $size); }
+}
