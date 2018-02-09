@@ -18,6 +18,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-extname": "^0.2.2",
     "gulp-html-beautify": "^1.0.1",
+    "gulp-imagemin": "^4.1.0",
     "gulp-inject": "^4.3.0",
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^3.1.0",

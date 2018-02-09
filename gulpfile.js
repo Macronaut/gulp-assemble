@@ -1,23 +1,24 @@
 const browserSync = require('browser-sync').create(),    
-    beautify = require('gulp-html-beautify'),    
+    beautify = require('gulp-html-beautify'),
+    imagemin = require('gulp-imagemin'),
     sequence = require('run-sequence'),
     plumber = require('gulp-plumber'),    
-    extname = require("gulp-extname"),
+    extname = require('gulp-extname'),    
     assemble = require('assemble')(),    
-    concat = require('gulp-concat'),
+    concat = require('gulp-concat'),    
     inject = require('gulp-inject'),    
-    watch = require('gulp-watch');
-    sass = require('gulp-sass'),
+    watch = require('gulp-watch'),
+    sass = require('gulp-sass'),    
     gulp = require('gulp');
 
 gulp.task('default', function() {
-   sequence('sass', 'js', 'bootstrap', 'html', 'html:inject', 'browserSync:watch', 'browserSync:serve');
+   sequence('js', 'sass', 'images', 'dependencies', 'html', 'html:inject', 'browserSync:watch', 'browserSync:serve');
 })
 
 gulp.task('browserSync:serve', function () {
     browserSync.init({
         server: {
-            baseDir: "./prod"
+            baseDir: './prod'
         }
     });
 });
@@ -29,13 +30,19 @@ gulp.task('browserSync:reload', function() {
 gulp.task('browserSync:watch', function() {
     watch(['dev/templates/**/*.{hbs,json}','dev/pages/**/*.hbs'], function() { sequence('html', 'html:inject', 'browserSync:reload') });
     watch('dev/assets/sass/**/*.scss', function() { sequence('sass', 'browserSync:reload') });
-    watch('dev/assets/js/**/*.js', function() { sequence('js', 'browserSync:reload') });
+    watch('dev/assets/images/**/*.*', function() { sequence('images', 'browserSync:reload') });    
+    watch('dev/assets/js/**/*.js', function() { sequence('js', 'browserSync:reload') });    
 });
 
-gulp.task('bootstrap', function() {
-    gulp.src('./dev/assets/bootstrap/**/*.*', {base: './dev/bootstrap'})
-    .pipe(gulp.dest('./prod/bootstrap'))
+gulp.task('dependencies', function() {
+    gulp.src(['./dev/assets/bootstrap/**/*.*','./dev/assets/jquery/**/*.*'], {base: './dev'})
+    .pipe(gulp.dest('./prod'))
 })
+
+/*gulp.task('fonts', function() {
+    return gulp.src("./dev/fonts/*.{ttf,otf}")
+    .pipe(fontgen({ dest: "./prod/assets/fonts"}));
+});*/
 
 gulp.task('sass', function() {
     return gulp.src('./dev/assets/sass/stylesheet.scss')
@@ -47,6 +54,12 @@ gulp.task('js', function() {
     return gulp.src('./dev/assets/js/**/*.js')
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest('./prod/assets/js'))
+})
+
+gulp.task('images', function(){
+    return gulp.src('./dev/assets/images/**/*.*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./prod/assets/images'))
 })
 
 gulp.task('html', function() {        
@@ -65,6 +78,6 @@ gulp.task('html', function() {
 
 gulp.task('html:inject', function() {
     return gulp.src('./prod/**/*.html')
-    .pipe(inject(gulp.src(["./prod/assets/**/*.{css,js}", "./prod/assets/bootstrap/**/*.{css,js}"], {read: false}), {relative: true, removeTags: true}))
+    .pipe(inject(gulp.src('./prod/assets/**/*.*', {read: false}), {relative: true, removeTags: true}))    
     .pipe(gulp.dest('./prod'))
 })
