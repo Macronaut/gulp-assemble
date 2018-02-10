@@ -1,3 +1,7 @@
 {
-    "empty": null 
+    "paintings" : [
+        { "title": "primavera", "path": "123" },
+        { "title": "verão", "path":"321" },
+        { "title": "inverno", "path": "312" }
+    ]
 }

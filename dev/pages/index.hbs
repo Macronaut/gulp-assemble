@@ -1,4 +1,15 @@
 ---
-title: 'Home'
+title: "Home"
 ---
-<p class='text-medium col-12 col-md-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit veniam soluta nesciunt fugit aut quibusdam ipsam aliquid dignissimos praesentium recusandae deleniti, distinctio iusto, ex, libero quod vero incidunt et voluptatum?</p>
+
+<div class="container-fluid no-padding">
+    <ul class="nav">
+        <li class="nav-item">Terezinha Dreher</li>
+        <li class="nav-item ml-auto">( 15 ) 99107-2024</li>
+    </ul>
+    <div class="col-md-10 col-sm-12 mx-auto">
+        {{#each paintings}}
+            <p>{{this.title}} {{this.path}}</p>
+        {{/each}}
+    </div>    
+</div>
