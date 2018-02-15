@@ -17,6 +17,15 @@ gulp.task('default', function() {
    sequence('images', 'dependencies', 'js', 'images:thumbs', 'sass', 'html', 'html:inject', 'browserSync:watch', 'browserSync:serve');
 })
 
+// BROWSERSYNC / SERVE / WATCH / RELOAD
+
+gulp.task('browserSync:watch', function() {
+    watch(['dev/templates/**/*.{hbs,json}','dev/pages/**/*.hbs'], function() { sequence('html', 'html:inject', 'browserSync:reload') });
+    watch('dev/assets/sass/**/*.scss', function() { sequence('sass', 'browserSync:reload') });
+    watch('dev/assets/images/**/*.*', function() { sequence('images', 'browserSync:reload') });
+    watch('dev/assets/js/**/*.js', function() { sequence('js', 'browserSync:reload') });
+});
+
 gulp.task('browserSync:serve', function () {
     browserSync.init({
         server: {
@@ -29,17 +38,14 @@ gulp.task('browserSync:reload', function() {
     browserSync.reload();
 })
 
-gulp.task('browserSync:watch', function() {
-    watch(['dev/templates/**/*.{hbs,json}','dev/pages/**/*.hbs'], function() { sequence('html', 'html:inject', 'browserSync:reload') });
-    watch('dev/assets/sass/**/*.scss', function() { sequence('sass', 'browserSync:reload') });
-    watch('dev/assets/images/**/*.*', function() { sequence('images', 'browserSync:reload') });
-    watch('dev/assets/js/**/*.js', function() { sequence('js', 'browserSync:reload') });
-});
+// DEPEDENCIES
 
 gulp.task('dependencies', function() {
-    gulp.src(['./dev/assets/bootstrap/**/*.*','./dev/assets/jquery/**/*.*'], {base: './dev'})
+    gulp.src(['./dev/assets/bootstrap/**/*.*','./dev/assets/jquery/**/*.*', './dev/assets/pace/**/*.*'], {base: './dev'})
     .pipe(gulp.dest('./prod'))
 })
+
+// SASS
 
 gulp.task('sass', function() {
     return gulp.src('./dev/assets/sass/stylesheet.scss')
@@ -50,17 +56,15 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./prod/assets/css'))
 })
 
+// JS
+
 gulp.task('js', function() {
     return gulp.src('./dev/assets/js/**/*.js')
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest('./prod/assets/js'))
 })
 
-gulp.task('images', function(){
-    return gulp.src('./dev/assets/images/**/*.*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('./prod/assets/images'))
-})
+// IMAGES / THUMBNAILS
 
 gulp.task('images:thumbs', function(){
     return gulp.src('./dev/assets/images/**/*.*')
@@ -72,6 +76,14 @@ gulp.task('images:thumbs', function(){
     }))
     .pipe(gulp.dest('./prod/assets/images/thumbs'))
 })
+
+gulp.task('images', function(){
+    return gulp.src('./dev/assets/images/**/*.*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./prod/assets/images'))
+})
+
+// HTML / INJECT
 
 gulp.task('html', function() {
     assemble.partials('./dev/templates/partials/**/*.hbs');

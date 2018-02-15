@@ -16,7 +16,8 @@ title: "Home"
             <div class="row">
                 <img class="modal-image img-fluid mx-auto" src="" alt="Painting">
             </div>
-            <h3 class="modal-image-title pt-3 color-grape"></h3>    
+            <h3 class="modal-image-title py-4 color-grape"></h3>
+            <p class="modal-image-description col-10 font-weight-bold mx-auto color-grape"></p>
         </div>
     </div>
   </div>
@@ -26,14 +27,31 @@ title: "Home"
     <ul class="nav">
         <li class="nav-item">Arte Além do Tempo</li>
         <li class="nav-item ml-auto">Terezinha Dreher</li>
-    </ul>
-    <div class="row col-md-10 col-sm-12 mx-auto pt-5">
+    </ul>    
+
+
+    <div class="col-lg-6 col-md-10 col-sm-12 mx-auto mt-5">
+        <div class="text-center">
+            <img class="img-fluid img-thumbnail" src="{{imagem}}" alt="Terezinha Dreher">
+            <h4 class="pt-4">{{artista}}</h4>
+            <p>{{especialidade}}</p>
+        </div>        
+        <p>{{descricao}}</p>
+    </div>    
+
+    <hr class="alert-success my-5"/>
+
+    <div class="col-6 mx-auto">
+        <p>Por favor, clique em algum dos quadros abaixo para ver uma imagem maior.</p>
+    </div>    
+
+    <div class="row col-md-10 col-sm-12 mx-auto pt-5">        
         {{#each paintings}}
             <div class="col">
                 <div class="card card-inverse mx-auto mb-5" data-toggle="modal" data-target="#modalPicture" style="width: 20rem;">
                     <img class="card-img" src="{{this.path}}" alt="Card">
                     <div class="card-img-overlay">
-                        <h4 class="card-title">{{this.title}}</h4>
+                        <h4 class="card-title" data-description={{this.description}}>{{this.title}} <span class='float-right icon'>&#9906;</span></h4>                        
                     </div>
                 </div>
             </div>

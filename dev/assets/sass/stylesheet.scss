@@ -8,9 +8,22 @@
   @extend %background-eggplant  !optional;
   @extend %color-text !optional;
 
-  //height: 100%;
+  .card {
+    opacity: .9;
+
+    &:hover { opacity: 1; }
+  }
 
   &.no-padding { padding: 0; }
+
+  .icon {
+    bottom: 5px;
+    font-size: 40px;
+    position: absolute;
+    right: 10px;
+
+    transform: rotate(-45deg);
+  }
 
   .nav {
     @extend %background-grape !optional;

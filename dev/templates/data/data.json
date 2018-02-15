@@ -1,15 +1,19 @@
 {
     "paintings" : [
-        { "title": "Flores", "path": "assets/images/thumbs/01.jpeg" },
-        { "title": "Amarelo", "path":"assets/images/thumbs/02.jpeg" },
-        { "title": "Rosado", "path": "assets/images/thumbs/03.jpeg" },
-        { "title": "Outono", "path": "assets/images/thumbs/04.jpeg" },
-        { "title": "Riacho", "path": "assets/images/thumbs/05.jpeg" },
-        { "title": "Buquê", "path": "assets/images/thumbs/06.jpeg" },
-        { "title": "Árvores", "path": "assets/images/thumbs/07.jpeg" },
-        { "title": "Desabrochar", "path": "assets/images/thumbs/08.jpeg" },
-        { "title": "Porta", "path": "assets/images/thumbs/09.jpeg" },
-        { "title": "Florescer", "path": "assets/images/thumbs/10.jpeg" },
-        { "title": "Alaranjado", "path": "assets/images/thumbs/11.jpeg" }
-    ]
+        { "title": "Flores", "path": "assets/images/thumbs/01.jpeg", "description": "Descrição" },
+        { "title": "Amarelo", "path":"assets/images/thumbs/02.jpeg" , "description": "Descrição"},
+        { "title": "Rosado", "path": "assets/images/thumbs/03.jpeg", "description": "Descrição" },
+        { "title": "Outono", "path": "assets/images/thumbs/04.jpeg", "description": "Descrição" },
+        { "title": "Riacho", "path": "assets/images/thumbs/05.jpeg", "description": "Descrição" },
+        { "title": "Buquê", "path": "assets/images/thumbs/06.jpeg", "description": "Descrição" },
+        { "title": "Árvores", "path": "assets/images/thumbs/07.jpeg", "description": "Descrição" },
+        { "title": "Desabrochar", "path": "assets/images/thumbs/08.jpeg", "description": "Descrição" },
+        { "title": "Porta", "path": "assets/images/thumbs/09.jpeg", "description": "Descrição" },
+        { "title": "Florescer", "path": "assets/images/thumbs/10.jpeg", "description": "Descrição" },
+        { "title": "Alaranjado", "path": "assets/images/thumbs/11.jpeg", "description": "Descrição" }
+    ],
+    "imagem": "assets/images/terezinha-perfil.jpg",
+    "artista": "Terezinha Dreher",
+    "especialidade": "Artista Plástica / Óleo e Aquarela",
+    "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione qui, quisquam eveniet eius rerum sunt. Voluptatum distinctio cumque nulla aperiam, culpa mollitia deserunt, recusandae accusantium unde dignissimos, quis ullam natus."
 }
