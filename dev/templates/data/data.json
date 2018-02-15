@@ -1,7 +1,15 @@
 {
     "paintings" : [
-        { "title": "primavera", "path": "123" },
-        { "title": "verão", "path":"321" },
-        { "title": "inverno", "path": "312" }
+        { "title": "Flores", "path": "assets/images/thumbs/01.jpeg" },
+        { "title": "Amarelo", "path":"assets/images/thumbs/02.jpeg" },
+        { "title": "Rosado", "path": "assets/images/thumbs/03.jpeg" },
+        { "title": "Outono", "path": "assets/images/thumbs/04.jpeg" },
+        { "title": "Riacho", "path": "assets/images/thumbs/05.jpeg" },
+        { "title": "Buquê", "path": "assets/images/thumbs/06.jpeg" },
+        { "title": "Árvores", "path": "assets/images/thumbs/07.jpeg" },
+        { "title": "Desabrochar", "path": "assets/images/thumbs/08.jpeg" },
+        { "title": "Porta", "path": "assets/images/thumbs/09.jpeg" },
+        { "title": "Florescer", "path": "assets/images/thumbs/10.jpeg" },
+        { "title": "Alaranjado", "path": "assets/images/thumbs/11.jpeg" }
     ]
 }

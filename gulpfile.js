@@ -14,7 +14,7 @@ const browserSync = require('browser-sync').create(),
     gulp = require('gulp');
 
 gulp.task('default', function() {
-   sequence('dependencies', 'js', 'images', 'images:thumbs', 'sass', 'html', 'html:inject', 'browserSync:watch', 'browserSync:serve');
+   sequence('images', 'dependencies', 'js', 'images:thumbs', 'sass', 'html', 'html:inject', 'browserSync:watch', 'browserSync:serve');
 })
 
 gulp.task('browserSync:serve', function () {
@@ -63,12 +63,12 @@ gulp.task('images', function(){
 })
 
 gulp.task('images:thumbs', function(){
-    return gulp.src('.dev/assets/images/**/*.*')
+    return gulp.src('./dev/assets/images/**/*.*')
     .pipe(imageResize({
-        upscale: false,
-        height: 300,
-        width: 300,
-        crop: true    
+        width : 300,
+        height : 300,
+        crop : true,
+        upscale : false
     }))
     .pipe(gulp.dest('./prod/assets/images/thumbs'))
 })
