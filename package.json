@@ -1,6 +1,6 @@
 {
   "name": "gulp-assemble",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Development in a gulp-based environment",
   "main": "gulpfile.js",
   "scripts": {
